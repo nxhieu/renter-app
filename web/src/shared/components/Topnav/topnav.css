@@ -1,0 +1,39 @@
+@import '../../variables.css';
+
+.top-banner {
+    background: linear-gradient(-90deg, #02202c, #001528);
+    display: flex;
+    justify-content: space-between;
+}
+
+.link-normal {
+    color: var(--text-color-white);
+    cursor: pointer;
+    flex: 0 0 auto;
+    text-decoration: none;
+}
+
+.link-normal .logo {
+    align-items: center;
+    display: flex;
+    font-size: var(--font-size-h5);
+    justify-content: center;
+}
+
+.link-normal .logo img {
+    height: 3rem;
+    vertical-align: middle;
+    width: 3rem;
+}
+
+.link-normal .catch-sentence {
+    color: var(--text-color-red);
+    text-align: center;
+}
+
+/* bigger than 600 */
+@media (min-width: 600px) {
+    .top-banner {
+        background: linear-gradient(-90deg, #02202c, #001528);
+    }
+}
