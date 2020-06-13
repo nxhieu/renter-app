@@ -1,0 +1,23 @@
+.banner {
+    /* background-color: #dedede; */
+    position: relative;
+    overflow: hidden;
+    height: 800px;
+    width: 100vw;
+}
+.banner:after {
+    content: '\A';
+    position: absolute;
+    height: 800px;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.banner img {
+    position: absolute;
+}
+.banner p {
+    position: absolute;
+}

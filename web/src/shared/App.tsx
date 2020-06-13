@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, Route, Switch } from 'react-router-dom';
 // import favicon from '../shared/assets/favicon.png';
 import { Topnav } from './components/Topnav';
+import { Banner } from './components/Banner';
 import Home from './pages/Home';
 import Page1 from './pages/Page-1';
 import Page2 from './pages/Page-2';
@@ -21,7 +22,7 @@ const App: React.FC<any> = () => {
 
             {/* <ReactLogo className={css.reactLogo} /> Renter */}
             <Topnav title={'Truong An'} />
-
+            <Banner />
             <Switch>
                 <Route exact path={routes.home} component={Home} />
                 <Route exact path={routes.page1} component={Page1} />

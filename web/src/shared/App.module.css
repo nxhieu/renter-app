@@ -6,12 +6,12 @@
 :global(body) {
     font-family: 'Nunito', Sans-Serif;
     font-size: var(--font-size-base);
-    line-height: 1.5;
+    line-height: 1.2;
     margin: 0;
     padding: 0;
 }
 
 .wrapper {
-    /* margin: auto; */
-    /* max-width: 100%; */
+    margin: auto;
+    width: 100vw;
 }

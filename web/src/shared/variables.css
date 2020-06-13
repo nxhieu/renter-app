@@ -5,6 +5,7 @@
     --font-size-h3: 20px;
     --font-size-h4: 16px;
     --font-size-h5: 14px;
+    --background-color-blue: linear-gradient(-90deg, #02202c, #001528);
     --text-color-white: #f4f4f4;
     --text-color-red: #f44292;
 }
