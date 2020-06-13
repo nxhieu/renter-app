@@ -6,10 +6,9 @@ const Banner = () => {
     return (
         <div className="banner">
             <img src={banner} />
+            <h2>Apartment for rent </h2>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic doloribus reiciendis
-                commodi. Aliquam, perferendis. Voluptatem provident nihil voluptas quae, veniam odit
-                quibusdam repellat rerum modi harum sapiente voluptates reprehenderit voluptatum!
+                An Excellent place for people who are looking for quality living in Ho chi minh city
             </p>
         </div>
     );
