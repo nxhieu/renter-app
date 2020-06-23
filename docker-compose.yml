@@ -1,0 +1,15 @@
+version: "3"
+services:
+  web:
+    build:
+      dockerfile: Dockerfile
+      context: ./web
+    ports:
+      - "8500:8500"
+      - "8501:8501"
+    volumes:
+      - /app/node_modules
+      - ./web:/app
+  # web-test: 
+  #   build: 
+  #     dockerfile: Dockerfile.
