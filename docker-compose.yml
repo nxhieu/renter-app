@@ -10,6 +10,3 @@ services:
     volumes:
       - /app/node_modules
       - ./web:/app
-  # web-test: 
-  #   build: 
-  #     dockerfile: Dockerfile.

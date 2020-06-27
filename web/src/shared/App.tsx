@@ -23,13 +23,14 @@ const App: React.FC<any> = () => {
             {/* <ReactLogo className={css.reactLogo} /> Renter */}
             <Topnav title={'Truong An'} />
             <Banner />
-            <Switch>
+            <button />
+            {/* <Switch>
                 <Route exact path={routes.home} component={Home} />
                 <Route exact path={routes.page1} component={Page1} />
                 <Route exact path={routes.page2} component={Page2} />
                 <Route render={() => '404!'} />
-            </Switch>
-            <h2>Headline</h2>
+            </Switch> */}
+            {/* <h2>Headline</h2>
             <ul>
                 <li>
                     <Link to="/">Homepage</Link>
@@ -40,7 +41,7 @@ const App: React.FC<any> = () => {
                 <li>
                     <Link to="/page-2">page 2</Link>
                 </li>
-            </ul>
+            </ul> */}
         </div>
     );
 };
