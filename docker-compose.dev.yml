@@ -18,3 +18,14 @@ services:
       - "8080:8080"
     volumes:
       - ./authorisationservice/demo:/app
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:8
+    container_name: mysql_service
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=hieu
+    # volumes:
+    #   - ./MySQL:/docker-entrypoint-initdb.d

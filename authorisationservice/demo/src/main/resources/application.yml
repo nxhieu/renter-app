@@ -1,4 +1,16 @@
 spring:
+  datasource: 
+    url: jdbc:mysql://mysql/hieu?allowPublicKeyRetrieval=true&useSSL=false
+    username: root 
+    password: password
+  jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+            naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
   security:
     oauth2:
       client:
@@ -6,3 +18,11 @@ spring:
           google:
             clientId: 921545662264-0p53bufc1tfnit0r0ikd4sdk40lou7cv.apps.googleusercontent.com
             clientSecret: 6SkXQ4txQwHwkBnCe9Yexlkz
+            redirectUri: "http://localhost:8500/"
+            scope:
+                - email
+                - profile
+app:
+  oauth2:
+    authorizedRedirectUris:
+      - http://localhost:5000/oauth2/redirect
