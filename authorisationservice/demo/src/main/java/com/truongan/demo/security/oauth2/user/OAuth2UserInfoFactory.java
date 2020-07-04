@@ -5,7 +5,7 @@ import java.util.Map;
 import com.truongan.demo.exception.OAuth2AuthenticationProcessingException;
 import com.truongan.demo.model.AuthProvider;
 
-public class Oauth2UserInfoFactory {
+public class OAuth2UserInfoFactory {
 
     public static OAuth2UserInfo getOAuth2UserInfo(String registrationId, Map<String, Object> attributes) {
         if (registrationId.equalsIgnoreCase(AuthProvider.google.toString())) {

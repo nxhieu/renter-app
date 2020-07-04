@@ -5,6 +5,7 @@ import cors from 'cors';
 import chalk from 'chalk';
 import manifestHelpers from 'express-manifest-helpers';
 import bodyParser from 'body-parser';
+import axios from 'axios';
 import paths from '../../config/paths';
 // import { configureStore } from '../shared/store';
 import errorHandler from './middleware/errorHandler';
@@ -41,7 +42,17 @@ app.use(
     })
 );
 
-app.use(serverRenderer());
+app.get('/', async (req, res) => {
+    try {
+        const reponse = await axios({ method: 'get', url: 'http://auth-service:8080/callBack' });
+        console.log(reponse.data);
+    } catch (error) {
+        console.log(error);
+    }
+    serverRenderer()(req, res);
+});
+
+// app.use(serverRenderer());
 
 app.use(errorHandler);
 

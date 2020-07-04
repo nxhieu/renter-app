@@ -12,7 +12,7 @@ module.exports = (api) => {
                 '@babel/env',
                 {
                     modules: false,
-                    useBuiltIns: 'entry',
+                    useBuiltIns: 'usage',
                     corejs: 3.6,
                     ...(isTargetWeb === false && {
                         targets: {
