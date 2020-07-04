@@ -4,7 +4,15 @@ import svg from '../../assets/react.svg';
 import { Login } from '../Login';
 import './topnav.css';
 
-const Topnav = ({ title }: { title: string }): JSX.Element => {
+const Topnav = ({
+    title,
+    isLoginButtonClicked,
+    onLoginButtonClicked,
+}: {
+    title: string;
+    isLoginButtonClicked: boolean;
+    onLoginButtonClicked: () => void;
+}): JSX.Element => {
     return (
         <div className="top-banner">
             <div className="hambuger-bar" />
@@ -15,7 +23,10 @@ const Topnav = ({ title }: { title: string }): JSX.Element => {
                 </div>
             </Link>
             <nav className="Main-nav"> </nav>
-            <Login />
+            <Login
+                isLoginButtonClicked={isLoginButtonClicked}
+                onLoginButtonClicked={onLoginButtonClicked}
+            />
         </div>
     );
 };

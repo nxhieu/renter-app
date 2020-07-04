@@ -1,10 +1,11 @@
 // import React, { Suspense } from 'react';
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, Route, Switch } from 'react-router-dom';
 // import favicon from '../shared/assets/favicon.png';
 import { Topnav } from './components/Topnav';
 import { Banner } from './components/Banner';
+import { Authmodal } from './components/Authmodal';
 import Home from './pages/Home';
 import Page1 from './pages/Page-1';
 import Page2 from './pages/Page-2';
@@ -12,6 +13,14 @@ import routes from './routes';
 import css from './App.module.css';
 
 const App: React.FC<any> = () => {
+    const [isLoginButtonClicked, setLoginButtonClicked] = useState<boolean>(false);
+    if (!isLoginButtonClicked) {
+        console.log('sd');
+    }
+    const onLoginButtonClicked = (): void => {
+        setLoginButtonClicked(!isLoginButtonClicked);
+    };
+
     return (
         <div className={css.wrapper}>
             <Helmet
@@ -19,9 +28,13 @@ const App: React.FC<any> = () => {
                 titleTemplate="Truong An"
                 // link={[{ rel: 'icon', type: 'image/png', href: favicon }]}
             />
-
+            <Authmodal />
             {/* <ReactLogo className={css.reactLogo} /> Renter */}
-            <Topnav title={'Truong An'} />
+            <Topnav
+                title={'Truong An'}
+                isLoginButtonClicked={isLoginButtonClicked}
+                onLoginButtonClicked={onLoginButtonClicked}
+            />
             <Banner />
             <button />
             {/* <Switch>

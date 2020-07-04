@@ -18,11 +18,11 @@ spring:
           google:
             clientId: 921545662264-0p53bufc1tfnit0r0ikd4sdk40lou7cv.apps.googleusercontent.com
             clientSecret: 6SkXQ4txQwHwkBnCe9Yexlkz
-            redirectUri: "http://localhost:8500/"
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
             scope:
                 - email
                 - profile
 app:
   oauth2:
     authorizedRedirectUris:
-      - http://localhost:5000/oauth2/redirect
+      - http://localhost:8500/

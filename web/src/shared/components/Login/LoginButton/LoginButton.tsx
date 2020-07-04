@@ -3,9 +3,20 @@ import axios from 'axios';
 import './LoginButton.css';
 import { json } from 'body-parser';
 
-const LoginButton = ({ isAuthenticated }: { isAuthenticated: boolean }) => {
+const LoginButton = ({
+    isAuthenticated,
+    isLoginButtonClicked,
+    onLoginButtonClicked,
+}: {
+    isAuthenticated: boolean;
+    isLoginButtonClicked: boolean;
+    onLoginButtonClicked: () => void;
+}) => {
+    const onButtonClick = (): void => {
+        onLoginButtonClicked();
+    };
     return (
-        <button onClick={() => apiCalls()} className="button-login">
+        <button onClick={() => onButtonClick()} className="button-login">
             {isAuthenticated ? ' log out' : 'Log in'}
         </button>
     );

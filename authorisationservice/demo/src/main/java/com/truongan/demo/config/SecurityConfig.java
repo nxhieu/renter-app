@@ -3,6 +3,7 @@ package com.truongan.demo.config;
 import com.truongan.demo.security.HttpCookieOAuth2AuthorizationRequestRepository;
 import com.truongan.demo.security.RestAuthenticationEntryPoint;
 import com.truongan.demo.security.oauth2.CustomOAuth2UserService;
+import com.truongan.demo.security.oauth2.OAuth2AuthenticationSuccessHandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -23,6 +24,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository;
+
+    @Autowired
+    private OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler;
 
     /*
      * By default, Spring OAuth2 uses
@@ -45,9 +49,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.html", "/**/*.css", "/**/*.js")
                 .permitAll().antMatchers("/auth/**", "/oauth2/**", "/callBack").permitAll().anyRequest().authenticated()
                 .and().oauth2Login().authorizationEndpoint().baseUri("/oauth2/authorize")
-                .authorizationRequestRepository(httpCookieOAuth2AuthorizationRequestRepository).and()
-                .redirectionEndpoint().baseUri("/oauth2/callback/*").and().userInfoEndpoint()
-                .userService(customOAuth2UserService).and();
+                .authorizationRequestRepository(cookieAuthorizationRequestRepository()).and().redirectionEndpoint()
+                .baseUri("/oauth2/callback/*").and().userInfoEndpoint().userService(customOAuth2UserService).and()
+                .successHandler(oAuth2AuthenticationSuccessHandler);
 
     }
 }

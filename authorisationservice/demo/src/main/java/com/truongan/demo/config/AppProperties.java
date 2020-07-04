@@ -37,6 +37,7 @@ public class AppProperties {
         private List<String> authorizedRedirectUris = new ArrayList<>();
 
         public List<String> getAuthorizedRedirectUris() {
+
             return authorizedRedirectUris;
         }
 
