@@ -24,9 +24,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.html", "/**/*.css", "/**/*.js")
                 .permitAll().antMatchers("/auth/**", "/oauth2/**", "/callBack").permitAll().anyRequest()
                 .authenticated();
-<<<<<<< HEAD
-=======
-
->>>>>>> 26e8ba362ad0e66a32933e10f220498d17fddfa5
     }
 }
