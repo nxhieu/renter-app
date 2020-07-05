@@ -1,9 +1,46 @@
 @import '../../variables.css';
 
-.modal-wrapper {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
+.wrapper-side-authmodal {
     bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 30px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 3;
 }
+
+.wrapper-vertical-authmodal {
+    align-items: center;
+    display: flex;
+    margin: 40px auto;
+    max-width: 300px;
+    min-height: calc(100% - 80px);
+    width: 100%;
+}
+
+.background-authmodal {
+    background-color: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.authmodal {
+    background-color: #f6f9fc;
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    overflow: hidden;
+    padding: 25px;
+    position: relative;
+    width: 100%;
+}
+
+/* @media (min-width: 600px) {
+} */
