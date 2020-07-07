@@ -1,5 +1,6 @@
 @import '../../variables.css';
 
+/* outer wrapper */
 .wrapper-side-authmodal {
     bottom: 0;
     left: 0;
@@ -40,6 +41,52 @@
     padding: 25px;
     position: relative;
     width: 100%;
+}
+
+.close-tag {
+    cursor: pointer;
+    height: 15px;
+    opacity: 0.5;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    transition-delay: 0;
+    transition-duration: 0.2s;
+    /* transition: opacity 0.2s; */
+    transition-property: opacity;
+    transition-timing-function: ease;
+    width: 15px;
+}
+
+/* 
+    transition-property: opacity 
+    transition-duration: 0.2s
+    transition-timing-function: ease;
+    transition-delay: 0;
+*/
+
+.close-tag:before,
+.close-tag:after {
+    background-color: grey;
+    border-radius: 4px;
+    content: '';
+    height: 20px;
+    position: absolute;
+    width: 4px;
+}
+
+.close-tag:before {
+    transform: rotate(-45deg);
+}
+
+.close-tag:after {
+    transform: rotate(45deg);
+}
+
+.title {
+    margin: 0 0 10px;
+    text-align: center;
+    text-transform: none;
 }
 
 /* @media (min-width: 600px) {

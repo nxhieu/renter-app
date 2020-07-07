@@ -7,7 +7,11 @@ const Authmodal = (): JSX.Element => {
             <div className="background-authmodal" />
             <div className="wrapper-side-authmodal">
                 <div className="wrapper-vertical-authmodal">
-                    <div className="authmodal" />
+                    <div className="authmodal">
+                        <div className="close-tag" />
+                        <h3 className="title">Sign in to</h3>
+                        <div className="banner" />
+                    </div>
                 </div>
             </div>
         </Fragment>
