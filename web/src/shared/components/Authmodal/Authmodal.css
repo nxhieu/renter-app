@@ -1,9 +1,93 @@
 @import '../../variables.css';
 
-.modal-wrapper {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
+/* outer wrapper */
+.wrapper-side-authmodal {
     bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 30px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 3;
 }
+
+.wrapper-vertical-authmodal {
+    align-items: center;
+    display: flex;
+    margin: 40px auto;
+    max-width: 300px;
+    min-height: calc(100% - 80px);
+    width: 100%;
+}
+
+.background-authmodal {
+    background-color: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.authmodal {
+    background-color: #f6f9fc;
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    overflow: hidden;
+    padding: 25px;
+    position: relative;
+    width: 100%;
+}
+
+.close-tag {
+    cursor: pointer;
+    height: 15px;
+    opacity: 0.5;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    transition-delay: 0;
+    transition-duration: 0.2s;
+    /* transition: opacity 0.2s; */
+    transition-property: opacity;
+    transition-timing-function: ease;
+    width: 15px;
+}
+
+/* 
+    transition-property: opacity 
+    transition-duration: 0.2s
+    transition-timing-function: ease;
+    transition-delay: 0;
+*/
+
+.close-tag:before,
+.close-tag:after {
+    background-color: grey;
+    border-radius: 4px;
+    content: '';
+    height: 20px;
+    position: absolute;
+    width: 4px;
+}
+
+.close-tag:before {
+    transform: rotate(-45deg);
+}
+
+.close-tag:after {
+    transform: rotate(45deg);
+}
+
+.title {
+    margin: 0 0 10px;
+    text-align: center;
+    text-transform: none;
+}
+
+/* @media (min-width: 600px) {
+} */
