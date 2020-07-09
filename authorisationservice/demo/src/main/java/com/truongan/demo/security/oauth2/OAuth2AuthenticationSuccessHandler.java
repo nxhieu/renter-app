@@ -65,6 +65,10 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         return UriComponentsBuilder.fromUriString(targetUrl).build().toUriString();
     }
 
+
+    /*
+        To implement => change isAuthorized 
+    */
     private boolean isAuthorizedRedirectUri(String uri) {
         URI clientRedirectUri = URI.create(uri);
 
