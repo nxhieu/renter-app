@@ -52,7 +52,6 @@
     top: 5px;
     transition-delay: 0;
     transition-duration: 0.2s;
-    /* transition: opacity 0.2s; */
     transition-property: opacity;
     transition-timing-function: ease;
     width: 15px;
@@ -89,5 +88,25 @@
     text-transform: none;
 }
 
-/* @media (min-width: 600px) {
-} */
+.button h4 {
+    margin: auto;
+    /* color: #fff; */
+    /* border: 1px solid transparent; */
+    align-items: center;
+    /* cursor: pointer; */
+    /* text-align: center; */
+
+}
+
+.icon {
+    height: 30px;
+    max-height: 100%;
+}
+
+
+
+
+
+
+@media (min-width: 600px) {
+}

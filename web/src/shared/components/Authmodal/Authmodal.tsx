@@ -1,32 +1,32 @@
 import React, { Fragment } from 'react';
-<<<<<<< HEAD
-import "./Authmodal.css";
-
-=======
+import google from '../../assets/google.svg';
 import './Authmodal.css';
->>>>>>> b17b9de5262ace664054ea4aa6224e81c0c65df5
 
 const Authmodal = (): JSX.Element => {
-    
-    
     return (
         <Fragment>
-<<<<<<< HEAD
-           <div className="modal-wrapper">
-                 
-           </div>
-=======
             <div className="background-authmodal" />
             <div className="wrapper-side-authmodal">
                 <div className="wrapper-vertical-authmodal">
                     <div className="authmodal">
                         <div className="close-tag" />
                         <h3 className="title">Sign in to</h3>
-                        <div className="banner" />
+                        <div className="col text-center">
+                        <button
+                            type="button"
+                            className="d-flex align-content-center btn btn-primary btn-block  button"
+                        >
+                            <img className="icon" src={google} />
+                            <h4>
+                            Google
+                            </h4>                       
+                        </button>
+
+                        </div>
+                       
                     </div>
                 </div>
             </div>
->>>>>>> b17b9de5262ace664054ea4aa6224e81c0c65df5
         </Fragment>
     );
 };
