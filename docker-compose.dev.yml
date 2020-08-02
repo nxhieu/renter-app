@@ -10,6 +10,7 @@ services:
     volumes:
       - /app/node_modules
       - ./web:/app
+    shm_size: "128m"
   auth-service:
     build:
       dockerfile: Dockerfile.dev
