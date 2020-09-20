@@ -1,0 +1,44 @@
+@import '../../variables.css';
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.tab-wrapper {
+    border-radius: 4px;
+    color: var(--text-color-blue);
+    display: flex;
+    flex: 1 1 80%;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+.tab-wrapper > img {
+    margin: 10px auto;
+    width: 70px;
+}
+
+.tab-wrapper > h3 {
+    font-size: calc(var(--font-size-h3) - 1px);
+}
+
+.tab-wrapper > p {
+    font-size: calc(var(--font-size-base) - 1px);
+    line-height: 1.7;
+}
+
+/* bigger than 600 */
+@media (min-width: 600px) {
+    .tab-wrapper {
+        border-radius: 4px;
+        color: var(--text-color-blue);
+        display: flex;
+        flex: 1 1 33%;
+        flex-direction: column;
+        text-align: center;
+        transition: box-shadow 0.3s;
+    }
+}

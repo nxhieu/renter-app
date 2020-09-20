@@ -5,6 +5,7 @@ import { StaticRouter as Router } from 'react-router-dom';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
+import serialize from 'serialize-javascript';
 import IntlProvider from '../../shared/i18n/IntlProvider';
 import App from '../../shared/App';
 import Html from '../components/HTML';
@@ -13,11 +14,12 @@ const helmetContext = {};
 const routerContext = {};
 
 const serverRenderer: any = () => (
-    req: express.Request & { store: Store },
-    res: express.Response
+    req: express.Request,
+    res: express.Response,
+    store: Store<any>
 ) => {
     const content = renderToString(
-        <Provider store={res.locals.store}>
+        <Provider store={store}>
             <Router location={req.url} context={routerContext}>
                 <IntlProvider>
                     <HelmetProvider context={helmetContext}>
@@ -28,8 +30,10 @@ const serverRenderer: any = () => (
         </Provider>
     );
 
-    const state = JSON.stringify(res.locals.store.getState());
-
+    // const state = JSON.stringify(store.getState());
+    const state = serialize(store.getState());
+    // console.log(state);
+    // console.log(res.locals.store.getState(), '?');
     return res.send(
         '<!doctype html>' +
             renderToString(

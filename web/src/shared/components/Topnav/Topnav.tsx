@@ -4,15 +4,17 @@ import svg from '../../assets/react.svg';
 import { Login } from '../Login';
 import './topnav.css';
 
+interface topNavProps {
+    title: String;
+    isLoginButtonClicked: boolean;
+    onLoginButtonClicked: () => void;
+}
+
 const Topnav = ({
     title,
     isLoginButtonClicked,
     onLoginButtonClicked,
-}: {
-    title: string;
-    isLoginButtonClicked: boolean;
-    onLoginButtonClicked: () => void;
-}): JSX.Element => {
+}: topNavProps): JSX.Element => {
     return (
         <div className="top-banner">
             <div className="hambuger-bar" />

@@ -1,0 +1,13 @@
+@import '../../variables.css';
+
+.footer-wrapper {
+    align-items: center;
+    background-color: #02203c;
+    color: var(--text-color-white);
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 15px;
+    justify-content: center;
+    /* min-height: 50px; */
+    margin: 0 auto;
+}

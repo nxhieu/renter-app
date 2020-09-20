@@ -22,7 +22,12 @@ spring:
             scope:
                 - email
                 - profile
+  session:
+    store-type: none
 app:
+  auth:
+    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
+    tokenExpirationMsec: 864000000
   oauth2:
     authorizedRedirectUris:
-      - http://localhost:8500/
+      - http://localhost:8500/oauth2/redirect

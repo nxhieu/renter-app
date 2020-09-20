@@ -8,7 +8,7 @@
     width: 100vw;
 }
 .banner:after {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.322);
     content: '\A';
     height: 800px;
     left: 0;
@@ -53,13 +53,13 @@
     .banner {
         height: 450px;
         overflow: hidden;
-        position: absolute;
+        position: relative;
         text-align: center;
         width: 100vw;
     }
 
     .banner:after {
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.329);
         content: '\A';
         left: 0;
         position: absolute;

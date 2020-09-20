@@ -1,5 +1,6 @@
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
+import axios from 'axios';
 import createRootReducer from './rootReducer';
 
 type StoreParams = {
@@ -15,10 +16,16 @@ export const configureStore = ({ initialState, middleware = [] }: StoreParams) =
 
     const composeEnhancers = devtools || compose;
 
+    const axiosInstance = axios.create({
+        baseURL: 'http://localhost:8500/api',
+    });
+
     const store = createStore(
         createRootReducer(),
         initialState,
-        composeEnhancers(applyMiddleware(...[thunk].concat(...middleware)))
+        composeEnhancers(
+            applyMiddleware(...[thunk.withExtraArgument(axiosInstance)].concat(...middleware))
+        )
     );
 
     if (process.env.NODE_ENV !== 'production') {

@@ -5,12 +5,15 @@ import cors from 'cors';
 import chalk from 'chalk';
 import manifestHelpers from 'express-manifest-helpers';
 import bodyParser from 'body-parser';
-import axios from 'axios';
+// import axios from 'axios';
+import proxy from 'express-http-proxy';
 import paths from '../../config/paths';
+// import { AuthRequest } from '../shared/store/auth/actions';
+import { loadData } from '../shared/App';
 // import { configureStore } from '../shared/store';
 import errorHandler from './middleware/errorHandler';
 import serverRenderer from './middleware/serverRenderer';
-import addStore from './middleware/addStore';
+import getStore from './middleware/getStore';
 // import webhookVerification from './middleware/webhookVerification';
 // import { i18nextXhr, refreshTranslations } from './middleware/i18n';
 
@@ -18,7 +21,7 @@ require('dotenv').config();
 
 const app = express();
 // const app = express.default();
-
+app.use('/api', proxy('http://auth-service:8080'));
 // Use Nginx or Apache to serve static assets in production or remove the if() around the following
 // lines to use the express.static middleware to serve assets for production (not recommended!)
 // if (process.env.NODE_ENV === 'development') {
@@ -32,7 +35,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // It's probably a good idea to serve these static assets with Nginx or Apache as well:
 
-app.use(addStore);
+// app.use(addStore);
 
 const manifestPath = path.join(paths.clientBuild, paths.publicPath);
 
@@ -42,15 +45,17 @@ app.use(
     })
 );
 
-app.get('/', async (req, res) => {
-    try {
-        const reponse = await axios({ method: 'get', url: 'http://auth-service:8080/callBack' });
-        console.log(reponse.data);
-    } catch (error) {
-        console.log(error);
-    }
-    serverRenderer()(req, res);
+app.use('/', (req, res) => {
+    const store = getStore(req);
+    const promises = loadData(store);
+    promises
+        .then(() => {
+            serverRenderer()(req, res, store);
+        })
+        .catch(() => serverRenderer()(req, res, store));
 });
+
+// app.get('/oauth2/redirect', (req, res) => {});
 
 // app.use(serverRenderer());
 

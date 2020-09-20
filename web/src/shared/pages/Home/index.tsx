@@ -1,31 +1,24 @@
-import React, { useCallback } from 'react';
-// import { useDispatch } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-// import Features from 'shared/components/Features';
-// import { setLocale } from 'store/app/actions';
-// import { Locale } from 'store/app/types';
-
+import React from 'react';
+import { Banner } from '../../components/Banner';
+import { Whatwedo } from '../../components/Whatwedo/Whatwedo';
+import { Footer } from '../../components/Footer/Footer';
 const App: React.FC<any> = () => {
-    const { t } = useTranslation();
-    // const dispatch = useDispatch();
-    // const handleLocaleChange = useCallback(
-    //     (e: React.FormEvent<HTMLButtonElement>) => {
-    //         dispatch(setLocale(e.currentTarget.value as Locale));
-    //     },
-    //     [dispatch]
-    // );
+    // const { t } = useTranslation();
+    // const [isLoginButtonClicked, setLoginButtonClicked] = useState<boolean>(false);
+
+    // const onLoginButtonClicked = (): void => {
+    //     setLoginButtonClicked(!isLoginButtonClicked);
+    // };
+
+    // const onLoginButtonClickedSetFalse = (): void => {
+    //     setLoginButtonClicked(false);
+    // };
 
     return (
         <React.Fragment>
-            <h2>{t('i18n-example')}</h2>
-            {/* <p>
-                <button value="de_DE" onClick={handleLocaleChange}>
-                    Deutsch
-                </button>
-                <button value="en_US" onClick={handleLocaleChange}>
-                    English
-                </button>
-            </p> */}
+            <Banner />
+            <Whatwedo />
+            <Footer />
         </React.Fragment>
     );
 };

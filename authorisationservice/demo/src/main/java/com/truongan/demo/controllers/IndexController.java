@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexController {
     @RequestMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Map getResult() {
-        return Collections.singletonMap("response", "your string value");
+        return Collections.singletonMap("response", "your string value1");
     }
 }

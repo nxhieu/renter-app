@@ -10,9 +10,9 @@ public class IndexControllerTest {
     // @Autowired
     // private MockMvc mockMvc;
 
-    @Test
-    void testInit() throws Exception {
-        System.out.println("Testttingggg");
-    }
+//    @Test
+//    void testInit() throws Exception {
+//        System.out.println("Testttingggg");
+//    }
 
 }

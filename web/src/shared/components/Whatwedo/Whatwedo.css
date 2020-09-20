@@ -1,0 +1,19 @@
+@import '../../variables.css';
+
+.MainBannerId {
+    margin: 110px 0 70px;
+    padding: 0 20px;
+}
+
+.MainBannerId .HeaderBanner {
+    font-size: var(--font-size-h1);
+    margin: 30px auto;
+    text-align: center;
+}
+
+.whatwedotab-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+}

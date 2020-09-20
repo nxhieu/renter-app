@@ -20,6 +20,14 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+/*
+    An implementation of an OAuth2UserService that supports standard OAuth 2.0 Provider's.
+    For standard OAuth 2.0 Provider's, the attribute name used to access the user's name from the UserInfo response
+    is required and therefore must be available via UserInfoEndpoint.getUserNameAttributeName().
+
+ */
+
+
 @Service
 public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
@@ -47,7 +55,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         if (StringUtils.isEmpty(oAuth2UserInfo.getEmail())) {
             throw new OAuth2AuthenticationProcessingException("Email not found from OAuth2 provider");
         }
-
+        // check if user already exists
         Optional<User> userOptional = userRepository.findByEmail(oAuth2UserInfo.getEmail());
         User user;
         if (userOptional.isPresent()) {
@@ -55,21 +63,18 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             if (!user.getProvider()
                     .equals(AuthProvider.valueOf(oAuth2UserRequest.getClientRegistration().getRegistrationId()))) {
                 throw new OAuth2AuthenticationProcessingException(
-                        "Looks like you're signed up with " + user.getProvider() + " account. Please use your "
+                        "Looks like you are signed up with " + user.getProvider() + " account. Please use your "
                                 + user.getProvider() + " account to login.");
             }
             user = updateExistingUser(user, oAuth2UserInfo);
         } else {
-
             user = registerNewUser(oAuth2UserRequest, oAuth2UserInfo);
         }
-
         return UserPrincipal.create(user, oAuth2User.getAttributes());
     }
 
     private User registerNewUser(OAuth2UserRequest oAuth2UserRequest, OAuth2UserInfo oAuth2UserInfo) {
         User user = new User();
-
         user.setProvider(AuthProvider.valueOf(oAuth2UserRequest.getClientRegistration().getRegistrationId()));
         user.setProviderId(oAuth2UserInfo.getId());
         user.setName(oAuth2UserInfo.getName());

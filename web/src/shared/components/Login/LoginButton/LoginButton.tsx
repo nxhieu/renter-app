@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import './LoginButton.css';
-import { json } from 'body-parser';
 
 const LoginButton = ({
     isAuthenticated,
@@ -12,11 +11,8 @@ const LoginButton = ({
     isLoginButtonClicked: boolean;
     onLoginButtonClicked: () => void;
 }) => {
-    const onButtonClick = (): void => {
-        onLoginButtonClicked();
-    };
     return (
-        <button onClick={() => onButtonClick()} className="button-login">
+        <button onClick={onLoginButtonClicked} className="button-login">
             {isAuthenticated ? ' log out' : 'Log in'}
         </button>
     );

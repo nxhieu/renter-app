@@ -21,6 +21,11 @@ declare module '*.jpg' {
     export default src;
 }
 
+declare module '*.png' {
+    const src: string;
+    export default src;
+}
+
 declare module '*.jpeg' {
     const src: string;
     export default src;
@@ -32,7 +37,7 @@ declare module '*.webp' {
 }
 
 declare module '*.svg' {
-    const src: string;
+    const src: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
     export default src;
 }
 
@@ -53,6 +58,7 @@ interface Window {
     store: any;
     __PRELOADED_STATE__: any;
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+    INITIAL_STATE: any;
 }
 
 declare module 'express-manifest-helpers';

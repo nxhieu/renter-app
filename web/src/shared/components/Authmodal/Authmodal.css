@@ -1,6 +1,25 @@
 @import '../../variables.css';
 
 /* outer wrapper */
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: scale(1.4);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 .wrapper-side-authmodal {
     bottom: 0;
     left: 0;
@@ -10,7 +29,7 @@
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 3;
+    z-index: 2;
 }
 
 .wrapper-vertical-authmodal {
@@ -23,9 +42,12 @@
 }
 
 .background-authmodal {
+    animation: fadeIn 0.6s ease-out forwards;
     background-color: rgba(0, 0, 0, 0.8);
     bottom: 0;
     left: 0;
+    opacity: 0;
+    pointer-events: auto;
     position: fixed;
     right: 0;
     top: 0;
@@ -33,14 +55,18 @@
 }
 
 .authmodal {
+    animation: modalFade 0.6s ease-out forwards;
     background-color: #f6f9fc;
     display: block;
     margin: 0 auto;
     max-width: 300px;
+    opacity: 0;
     overflow: hidden;
     padding: 25px;
-    position: relative;
+    pointer-events: auto;
+    position: fixed;
     width: 100%;
+    z-index: 2;
 }
 
 .close-tag {
@@ -50,6 +76,7 @@
     position: absolute;
     right: 5px;
     top: 5px;
+    transition: sweepin 0.5s ease-in-out;
     transition-delay: 0;
     transition-duration: 0.2s;
     transition-property: opacity;
@@ -57,12 +84,10 @@
     width: 15px;
 }
 
-/* 
-    transition-property: opacity 
-    transition-duration: 0.2s
-    transition-timing-function: ease;
-    transition-delay: 0;
-*/
+.close-tag:hover:before,
+.close-tag:hover:after {
+    background-color: darken(black, 10%);
+}
 
 .close-tag:before,
 .close-tag:after {
@@ -89,13 +114,8 @@
 }
 
 .button h4 {
-    margin: auto;
-    /* color: #fff; */
-    /* border: 1px solid transparent; */
     align-items: center;
-    /* cursor: pointer; */
-    /* text-align: center; */
-
+    margin: auto;
 }
 
 .icon {
@@ -103,10 +123,5 @@
     max-height: 100%;
 }
 
-
-
-
-
-
-@media (min-width: 600px) {
-}
+/* @media (min-width: 600px) {
+} */

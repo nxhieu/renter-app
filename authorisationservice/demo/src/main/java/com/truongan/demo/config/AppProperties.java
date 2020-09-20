@@ -3,6 +3,7 @@ package com.truongan.demo.config;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -12,8 +13,15 @@ public class AppProperties {
     private final Auth auth = new Auth();
     private final OAuth2 oauth2 = new OAuth2();
 
+
+    /*
+
+
+     */
     public static class Auth {
+        @Value("${tokenSecret}")
         private String tokenSecret;
+        @Value("${tokenExpirationMsec}")
         private long tokenExpirationMsec;
 
         public String getTokenSecret() {
@@ -37,7 +45,6 @@ public class AppProperties {
         private List<String> authorizedRedirectUris = new ArrayList<>();
 
         public List<String> getAuthorizedRedirectUris() {
-
             return authorizedRedirectUris;
         }
 

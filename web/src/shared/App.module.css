@@ -3,16 +3,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 /* @import-normalize; */
 
-:global(body) {
+*,
+:after,
+:before {
     box-sizing: border-box;
-    font-family: 'Nunito', Sans-Serif;
-    font-size: var(--font-size-base);
-    line-height: 1.2;
-    margin: 0;
-    padding: 0;
 }
 
 .wrapper {
+    background-color: var(--background-grey);
+    background-color: var(--background-grey);
+    box-sizing: border-box;
+    /* font-family: 'Nunito', Sans-Serif; */
+    font-size: var(--font-size-base);
+    line-height: 1.2;
+    margin: 0;
     margin: auto;
+    padding: 0;
     width: 100vw;
 }
