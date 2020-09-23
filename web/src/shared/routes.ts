@@ -1,8 +1,8 @@
 /* eslint-disable security/detect-object-injection */
 const routes = {
     home: '/',
-    page1: '/page-1',
-    page2: '/page-2',
+    inspection: '/inspection',
+    auth: '/page-2',
 };
 
 export const getRoute = (

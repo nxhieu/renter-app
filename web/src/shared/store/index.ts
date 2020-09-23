@@ -1,7 +1,7 @@
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import axios from 'axios';
-import createRootReducer from './rootReducer';
+import { createRootReducer } from './rootReducer';
 
 type StoreParams = {
     initialState?: { [key: string]: any };

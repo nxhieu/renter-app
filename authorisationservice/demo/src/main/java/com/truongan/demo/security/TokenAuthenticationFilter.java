@@ -57,7 +57,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
             }
 
         } catch (Exception ex){
-            logger.error("Could not send user authenticaiton in security context");
+            logger.error("Could not send user authentication in security context");
         }
 
         filterChain.doFilter(request, response);

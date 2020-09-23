@@ -2,7 +2,7 @@ import * as express from 'express';
 import axios from 'axios';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
-import createRootReducer from '../../shared/store/rootReducer';
+import { createRootReducer } from '../../shared/store/rootReducer';
 import { configureStore } from '../../shared/store';
 
 const getStore = (_req: express.Request) => {

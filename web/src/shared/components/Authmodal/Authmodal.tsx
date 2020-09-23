@@ -6,11 +6,13 @@ import './Authmodal.css';
 interface authModalProps {
     onLoginButtonClickedSetFalse: () => void;
     isLoginButtonClicked: Boolean;
+    message: string;
 }
 
 const Authmodal = ({
     onLoginButtonClickedSetFalse,
     isLoginButtonClicked,
+    message,
 }: authModalProps): JSX.Element => {
     const wrapperRef = createRef<HTMLDivElement>();
 
@@ -47,11 +49,11 @@ const Authmodal = ({
                                 type="button"
                                 className="d-flex align-content-center btn btn-primary btn-block  button"
                                 href={GOOGLE_AUTH_URL}
-                                // onClick={openOauth}
                             >
-                                <img className="icon" src={google} />
+                                <img className="icon" src={google.toString()} />
                                 <h4>Google</h4>
                             </a>
+                            <p> {message.length !== 0 ? message : message}</p>
                         </div>
                     </div>
                 </div>

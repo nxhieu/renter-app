@@ -63,7 +63,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         clearAuthenticationAttributes(request,response);
         // add cookies from userId
         String token = tokenService.createToken(authentication);
-        CookieUtils.addCookie(response, "sessionId", token, 360);
+        CookieUtils.addCookie(response, "sessionId", token, 86400);
 
 
         getRedirectStrategy().sendRedirect(request, response, targetUrl);
@@ -82,7 +82,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
             throw new BadRequestException(
                     "Sorry! We've got an Unauthorized Redirect URI and can't proceed with the authentication");
         }
-
+        System.out.println(redirectUri);
         String targetUrl = redirectUri.orElse(getDefaultTargetUrl());
         System.out.println(targetUrl);
         return UriComponentsBuilder.fromUriString(targetUrl).build().toUriString();

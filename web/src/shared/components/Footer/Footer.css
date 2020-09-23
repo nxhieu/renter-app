@@ -1,13 +1,41 @@
 @import '../../variables.css';
 
+.footer-wrapper-section {
+    background-color: #02203c;
+}
+
 .footer-wrapper {
     align-items: center;
-    background-color: #02203c;
+    border-top: 1px solid #fff;
     color: var(--text-color-white);
     display: flex;
     flex-direction: column-reverse;
     font-size: 15px;
     justify-content: center;
-    /* min-height: 50px; */
     margin: 0 auto;
+    min-height: 50px;
+    padding: 30px 0;
+    padding: 30px;
+    width: 85%;
+}
+
+.footer-linkcontainers {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-bar {
+    background-color: hsla(0, 0%, 100%, 0.3);
+    height: 15px;
+    margin: 0 15px;
+    text-decoration: none;
+    width: 2px;
+}
+
+.footer-linkcontainers a {
+    color: var(--text-color-white);
+    cursor: pointer;
+    padding: 3px 0;
+    text-decoration: none;
 }
