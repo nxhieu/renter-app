@@ -2,21 +2,21 @@
 /* Mobile under 600px */
 .button-login {
     background: transparent;
-    color: var(--text-color-white);
-    font: 14px;
-    cursor: pointer;
-    width: 75px;
-    border-radius: 4px;
-    padding: 5px 10px;
     border: 2px solid transparent;
-    margin: 0 7px;
+    border-radius: 4px;
+    color: var(--text-color-white);
+    cursor: pointer;
+    font: 14px;
     line-height: inherit;
+    margin: 0 7px;
+    padding: 5px 10px;
+    width: 75px;
 }
 
 /* bigger than 600 */
 @media (min-width: 600px) {
     .button-login {
-        color: var(--text-color-white);
         background: linear-gradient(-90deg, #02202c, #001528);
+        color: var(--text-color-white);
     }
 }

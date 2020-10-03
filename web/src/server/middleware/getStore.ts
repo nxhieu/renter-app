@@ -15,8 +15,8 @@ const getStore = (_req: express.Request) => {
     const store = createStore(
         createRootReducer(),
         {},
-        composeEnhancers(applyMiddleware(...[thunk.withExtraArgument(axiosInstance)]))
-        // applyMiddleware(thunk.withExtraArgument(axiosInstance))
+        // composeEnhancers(applyMiddleware(thunk.withExtraArgument(axiosInstance)))
+        applyMiddleware(thunk.withExtraArgument(axiosInstance))
     );
 
     return store;

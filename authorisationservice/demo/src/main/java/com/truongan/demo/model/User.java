@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = "email") })
@@ -33,6 +35,10 @@ public class User {
     private AuthProvider provider;
 
     private String providerId;
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
+    private Set<Inspection> inspections = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -96,5 +102,13 @@ public class User {
 
     public void setProviderId(String providerId) {
         this.providerId = providerId;
+    }
+
+    public Set<Inspection> getInspections() {
+        return inspections;
+    }
+
+    public void addInspection(Inspection inspection) {
+        this.inspections.add(inspection);
     }
 }

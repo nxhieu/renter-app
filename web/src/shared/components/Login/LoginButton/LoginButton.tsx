@@ -1,26 +1,34 @@
 import React from 'react';
+import { connect, ConnectedProps } from 'react-redux';
 import axios from 'axios';
+import { RootState } from '../../../store/rootReducer';
 import './LoginButton.css';
 
-const LoginButton = ({
-    isAuthenticated,
-    isLoginButtonClicked,
-    onLoginButtonClicked,
-}: {
-    isAuthenticated: boolean;
-    isLoginButtonClicked: boolean;
+interface Props extends PropsFromRedux {
     onLoginButtonClicked: () => void;
-}) => {
+}
+
+const LoginButton = (props: Props) => {
     return (
-        <button onClick={onLoginButtonClicked} className="button-login">
-            {isAuthenticated ? ' log out' : 'Log in'}
+        <button
+            onClick={() => (props.auth.authenticated === false ? props.onLoginButtonClicked : null)}
+            className="button-login"
+        >
+            {props.auth.authenticated ? ' log out' : 'Log in'}
         </button>
     );
 };
 
-const apiCalls = async (): Promise<void> => {
-    const reponse = await axios({ method: 'get', url: 'http://localhost:8080/callBack' });
-    console.log(reponse.data);
-};
+function mapStateToProps(state: RootState) {
+    return { auth: state.auth };
+}
 
-export { LoginButton };
+// function mapDispatch(){
+//     return {};
+// }
+
+const connector = connect(mapStateToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+export default connector(LoginButton);

@@ -7,4 +7,4 @@ const AuthPage = () => (
     </div>
 );
 
-export default Page;
+export default AuthPage;

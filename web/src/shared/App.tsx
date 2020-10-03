@@ -2,21 +2,23 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, Route, Switch } from 'react-router-dom';
+import { Redirect } from 'react-router';
 // import { connect }
 import { connect, ConnectedProps } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { RootState } from 'store/rootReducer';
 import favicon from '../shared/assets/favicon.png';
-import { Topnav } from './components/Topnav';
-import { Banner } from './components/Banner';
+import Topnav from './components/Topnav/Topnav';
 import { Authmodal } from './components/Authmodal';
 import { AuthRequest } from './store/auth/actions';
 import { OAuth2RedirectHandler } from './components/OAuth2RedirectHandler/OAuth2RedirectHandler';
 import LoginForm from './components/LoginForm/LoginForm';
+
 import Home from './pages/Home';
 import InspectionPage from './pages/Inspection';
-// import Page2 from './pages/Page-2';
+import InspectionConfirmation from './pages/InspectionConfirmation';
+import Admin from './pages/Admin';
 import routes from './routes';
 import css from './App.module.css';
 
@@ -53,14 +55,19 @@ const App: React.FC<any> = (props: Props) => {
                 onLoginButtonClicked={onLoginButtonClicked}
             />
             <Switch>
-                <Route exact path={routes.home} component={Home} />
+                <Route path={routes.home} component={Home} exact={true} />
+                <Route
+                    path={'/inspection' + routes.confirmation}
+                    component={InspectionConfirmation}
+                />
                 <Route
                     exact
                     path={routes.inspection}
                     render={() => (props.auth.authenticated ? <InspectionPage /> : <LoginForm />)}
                 />
-                {/* // <Route exact path={routes.page2} component={Page2} /> */}
+                <Route path="/admin" component={Admin} />
                 <Route path="/oauth2/redirect" component={OAuth2RedirectHandler} />
+                <Route path="/" render={() => <Redirect to={{ pathname: '/home' }} />} />
                 <Route render={() => '404!'} />
             </Switch>
         </div>

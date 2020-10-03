@@ -1,4 +1,4 @@
-import Axios, { AxiosInstance } from 'axios';
+import { AxiosInstance } from 'axios';
 
 export const ActionTypes = {
     AUTH_REQUEST: 'react-ssr-setup/auth/request',
@@ -11,8 +11,7 @@ export const ActionTypes = {
 export const AuthRequest = () => async (dispatch, getState, api: AxiosInstance) => {
     try {
         const authRes = await api.get('/user/me');
-
-        // console.log(authRes);
+        // console.log(authRes.status);
         dispatch({
             type: ActionTypes.AUTH_SUCCESS,
             payload: authRes.data,

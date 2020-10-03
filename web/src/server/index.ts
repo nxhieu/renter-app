@@ -10,6 +10,8 @@ import proxy from 'express-http-proxy';
 import paths from '../../config/paths';
 // import { AuthRequest } from '../shared/store/auth/actions';
 import { loadData } from '../shared/App';
+import { confirmationRequest } from '../shared/store/inspection/actions';
+import { loadDataConfirmation } from '../shared/pages/InspectionConfirmation';
 // import { configureStore } from '../shared/store';
 import errorHandler from './middleware/errorHandler';
 import serverRenderer from './middleware/serverRenderer';
@@ -45,6 +47,15 @@ app.use(
     })
 );
 
+app.use('/inspection/confirmation/:inspectionId', (req, res) => {
+    const id = req.params.inspectionId;
+    const store = getStore(req);
+
+    Promise.all([loadData_Confirmation(store.dispatch, id), loadData(store)])
+        .then(() => serverRenderer()(req, res, store))
+        .catch(() => serverRenderer()(req, res, store));
+});
+
 app.use('/', (req, res) => {
     const store = getStore(req);
     const promises = loadData(store);
@@ -54,10 +65,6 @@ app.use('/', (req, res) => {
         })
         .catch(() => serverRenderer()(req, res, store));
 });
-
-// app.get('/oauth2/redirect', (req, res) => {});
-
-// app.use(serverRenderer());
 
 app.use(errorHandler);
 

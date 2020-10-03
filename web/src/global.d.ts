@@ -50,6 +50,8 @@ declare module '*.css' {
     export default any;
 }
 
+declare module 'material-auto-rotating-carousel';
+
 declare const __BROWSER__: boolean;
 declare const __SERVER__: boolean;
 

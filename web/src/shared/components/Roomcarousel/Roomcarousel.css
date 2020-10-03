@@ -1,31 +1,29 @@
 @import '../../variables.css';
 
-.carousel {
-    background: var(--text-color-blue);
-    overflow: hidden;
-    padding: 30px 0 30px 0;
+.container {
+    height: 100%;
+    margin: 0;
+    width: 100%;
 }
 
-.carousel-inner img {
-    background-size: cover;
-    height: 250px;
-    margin: 0 auto;
-}
-.carousel-item {
-    height: 300px;
-    overflow-x: hidden;
+.image-slide {
+    height: 100%;
+    transition: background-image 0.3s ease-in-out;
+    width: 100%;
 }
 
-@media (min-width: 600px) {
-    .carousel-item {
-        height: 400px;
-        overflow-x: hidden;
-    }
+.slide-arrow {
+    /* color: $theme-blue; */
+    cursor: pointer;
+    font-size: 2rem;
+    /* position: fixed; */
+    top: 50%;
+}
 
-    .carousel-inner img {
-        background-size: cover;
-        height: 350px;
-        margin: 0 auto;
-        overflow: hidden;
-    }
+.slide-arrow.right {
+    right: 1rem;
+}
+
+.slide-arrow.left {
+    left: 1rem;
 }

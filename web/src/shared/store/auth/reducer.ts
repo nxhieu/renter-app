@@ -7,17 +7,19 @@ export const initialState = {
     email: '',
     imageUrl: '',
     authenticated: false,
+    isAdmin: false,
 };
 
 export default (state: AuthState = initialState, action: Action): AuthState =>
     produce(state, (draft) => {
         switch (action.type) {
             case ActionTypes.AUTH_SUCCESS: {
-                // console.log(action.payload.email);
+                console.log(action.payload.email);
                 draft.id = action.payload.id;
                 draft.email = action.payload.email;
                 draft.imageUrl = action.payload.imageUrl;
                 draft.authenticated = true;
+                draft.isAdmin = false;
                 return;
             }
             case ActionTypes.AUTH_FAILURE: {
@@ -25,6 +27,7 @@ export default (state: AuthState = initialState, action: Action): AuthState =>
                 draft.email = '';
                 draft.imageUrl = '';
                 draft.authenticated = false;
+                draft.isAdmin = false;
                 return;
             }
         }

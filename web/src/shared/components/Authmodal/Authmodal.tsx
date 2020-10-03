@@ -1,7 +1,21 @@
-import React, { useState, createRef, useEffect, Fragment } from 'react';
-import google from '../../assets/google.svg';
+import React, { createRef, useEffect, Fragment } from 'react';
+import Button from '@material-ui/core/Button';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
 import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL } from '../../../constants';
+import google from '../../assets/google.svg';
 import './Authmodal.css';
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        link: {
+            '&:focus, &:hover, &:visited, &:link, &:active': {
+                textDecoration: 'none',
+            },
+        },
+    })
+);
 
 interface authModalProps {
     onLoginButtonClickedSetFalse: () => void;
@@ -15,7 +29,7 @@ const Authmodal = ({
     message,
 }: authModalProps): JSX.Element => {
     const wrapperRef = createRef<HTMLDivElement>();
-
+    const classes = useStyles();
     // bind handler click outside to dom
     useEffect(() => {
         document.addEventListener('click', handlerClickOutside, false);
@@ -45,14 +59,13 @@ const Authmodal = ({
                         <div className="close-tag" onClick={onLoginButtonClickedSetFalse} />
                         <h3 className="title">Sign in to</h3>
                         <div className="col text-center">
-                            <a
-                                type="button"
-                                className="d-flex align-content-center btn btn-primary btn-block  button"
-                                href={GOOGLE_AUTH_URL}
-                            >
-                                <img className="icon" src={google.toString()} />
-                                <h4>Google</h4>
-                            </a>
+                            <Link className={classes.link} href={GOOGLE_AUTH_URL}>
+                                <Button variant="contained" color="primary" fullWidth={true}>
+                                    {/* <link rel="stylesheet" href="" /> */}
+                                    <img className="icon" src={google.toString()} />
+                                    <h4>Google</h4>
+                                </Button>
+                            </Link>
                             <p> {message.length !== 0 ? message : message}</p>
                         </div>
                     </div>

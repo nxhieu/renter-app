@@ -20,7 +20,7 @@ const Topnav = ({
             <div className="hambuger-bar" />
             <Link to="/" className="link-normal">
                 <div className="logo">
-                    <img src={svg} />
+                    <img src={svg.toString()} />
                     <h1 className="brand"> {title} </h1>
                 </div>
             </Link>
@@ -33,4 +33,4 @@ const Topnav = ({
     );
 };
 
-export { Topnav };
+export default Topnav;

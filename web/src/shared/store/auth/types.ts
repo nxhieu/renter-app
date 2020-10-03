@@ -1,8 +1,9 @@
 export type AuthState = Readonly<{
     id: Number | null;
-    email: String;
-    imageUrl: String;
-    authenticated: Boolean;
+    email: string;
+    imageUrl: string;
+    authenticated: boolean;
+    isAdmin: boolean;
 }>;
 
 export type Action = {

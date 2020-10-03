@@ -1,14 +1,14 @@
 .loginButton_wrapper {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
 }
 
 /* bigger than 600 */
 @media (min-width: 600px) {
     .loginButton_wrapper {
-        display: flex;
         align-items: center;
+        display: flex;
         justify-content: center;
     }
 }

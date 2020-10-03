@@ -1,0 +1,24 @@
+.form-auth-container {
+    height: 94vh;
+    padding-bottom: 100px;
+    padding-top: 90px;
+    width: 100vw;
+}
+
+.form-auth {
+    background: #f9f9f9;
+    border-radius: 4px;
+    box-shadow: 10px 10px 8px #888888;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 30px;
+}
+
+.form-auth > h3 {
+    display: block;
+    font-size: var(--font-size-h3);
+    padding-bottom: 10px;
+}

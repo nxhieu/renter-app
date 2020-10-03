@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LoginButton } from './LoginButton';
+import LoginButton from './LoginButton/LoginButton';
 import './Login.css';
 
 const Login = ({
@@ -9,15 +9,9 @@ const Login = ({
     isLoginButtonClicked: boolean;
     onLoginButtonClicked: () => void;
 }): JSX.Element => {
-    const [isAuthenticated, setAuthenticated] = useState<boolean>(false);
-
     return (
         <div className="loginButton_wrapper">
-            <LoginButton
-                isAuthenticated={isAuthenticated}
-                isLoginButtonClicked={isLoginButtonClicked}
-                onLoginButtonClicked={onLoginButtonClicked}
-            />
+            <LoginButton onLoginButtonClicked={onLoginButtonClicked} />
         </div>
     );
 };

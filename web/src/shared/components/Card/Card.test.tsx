@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import Oauthpopup from './Oauthpopup';
+import Card from './CarouselCard';
 
-describe('Oauthpopup', () => {
+describe('Card', () => {
     const defaultProps = {};
 
     it('tests something', () => {
-        shallow(<Oauthpopup {...defaultProps} />);
+        shallow(<Card {...defaultProps} />);
     });
 });
