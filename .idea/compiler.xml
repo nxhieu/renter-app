@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile name="Annotation profile for demo" enabled="true">
+      <profile name="Annotation profile for renter" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -10,16 +10,18 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.4.0.Final/mapstruct-processor-1.4.0.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.4.0.Final/mapstruct-1.4.0.Final.jar" />
         </processorPath>
-        <module name="demo" />
+        <module name="authorisation-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="authorisation-service" target="1.8" />
       <module name="demo" target="1.8" />
       <module name="renter-app" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="authorisation-service" options="-parameters -Amapstruct.defaultComponentModel=spring" />
       <module name="demo" options="-parameters -Amapstruct.defaultComponentModel=spring" />
       <module name="renter-app" options="-parameters" />
     </option>

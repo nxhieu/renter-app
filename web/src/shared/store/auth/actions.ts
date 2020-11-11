@@ -11,13 +11,12 @@ export const ActionTypes = {
 export const AuthRequest = () => async (dispatch, getState, api: AxiosInstance) => {
     try {
         const authRes = await api.get('/user/me');
-        // console.log(authRes.status);
         dispatch({
             type: ActionTypes.AUTH_SUCCESS,
             payload: authRes.data,
         });
     } catch (error) {
-        AuthFailure();
+        dispatch(AuthFailure());
     }
 };
 
@@ -33,9 +32,18 @@ export const AuthFailure = () => ({
     type: ActionTypes.AUTH_FAILURE,
 });
 
-// export const AuthInvalidate = () => ({
-//     type: ActionTypes.AUTH_INVALIDATE,
-// });
+export const AuthInvalidate = () => async (dispatch, getState, api: AxiosInstance) => {
+    try {
+        const authRes = await api.get('/user/logout');
+        dispatch({
+            type: ActionTypes.AUTH_INVALIDATE,
+        });
+    } catch (error) {
+        dispatch({
+            type: ActionTypes.AUTH_INVALIDATE,
+        });
+    }
+};
 
 // export const AuthModalState = () => {
 //     type: ActionTypes.AUTH_MODAL_STATE,

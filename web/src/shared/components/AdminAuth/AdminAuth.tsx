@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Formik, Form, FormikErrors } from 'formik';
 import { AppDispatch } from '../../../client';
-import { InspectionRequest } from '../../store/adminAuth/actions';
+import { AdminAuthRequest } from '../../store/adminAuth/actions';
 import { RootState } from '../../store/rootReducer';
 
 interface FormValues {

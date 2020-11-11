@@ -1,6 +1,6 @@
 import 'date-fns';
 import React, { useState } from 'react';
-import { withRouter, RouteComponentProps, Redirect } from 'react-router';
+import { withRouter, RouteComponentProps } from 'react-router';
 import { connect, ConnectedProps, useDispatch } from 'react-redux';
 import DateFnsUtils from '@date-io/date-fns';
 import {

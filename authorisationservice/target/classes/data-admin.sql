@@ -1,0 +1,1 @@
+Insert into admin (id, user_Id, password) Values (1, 'admin123', 'admin123');

@@ -1,0 +1,21 @@
+FROM maven:3.6.3-jdk-8
+WORKDIR /app
+# Copy maven executable to the image
+COPY mvnw .
+#COPY .mvn .mvn
+
+# Copy the pom.xml file
+COPY pom.xml .
+
+# Build all the dependencies in preparation to go offline. 
+# This is a separate step so the dependencies will be cached unless 
+# the pom.xml file has changed.
+# RUN ./mvnw dependency:go-offline -B
+
+# Copy the project source
+COPY src src
+
+CMD ["mvn", "spring-boot:run"]
+
+
+EXPOSE 8080  

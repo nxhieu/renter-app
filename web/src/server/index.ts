@@ -51,7 +51,7 @@ app.use('/inspection/confirmation/:inspectionId', (req, res) => {
     const id = req.params.inspectionId;
     const store = getStore(req);
 
-    Promise.all([loadData_Confirmation(store.dispatch, id), loadData(store)])
+    Promise.all([loadDataConfirmation(store.dispatch, id), loadData(store)])
         .then(() => serverRenderer()(req, res, store))
         .catch(() => serverRenderer()(req, res, store));
 });

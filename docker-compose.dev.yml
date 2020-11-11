@@ -1,4 +1,4 @@
-version: "3"
+version: "2.1"
 services:
   web:
     build:
@@ -13,20 +13,23 @@ services:
     shm_size: "128m"
   auth-service:
     build:
-      dockerfile: Dockerfile.dev
-      context: ./authorisationservice/demo
+      dockerfile: Dockerfile
+      context: ./authorisationservice
     ports:
       - "8080:8080"
     volumes:
-      - ./authorisationservice/demo:/app
+      - ./authorisationservice:/app
     depends_on:
       - mysql
   mysql:
     image: mysql:8
-    container_name: mysql_service
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=hieu
-    # volumes:
-    #   - ./MySQL:/docker-entrypoint-initdb.d
+#    healthcheck:
+#      test: ["CMD","mysqladmin","ping","-h","localhost"]
+#      timeout: 20s
+#      retries: 10
+#     volumes:
+#       - ./MySQL:/docker-entrypoint-initdb.d

@@ -6,12 +6,13 @@
 }
 
 .form-confirmation {
-    background: #f9f9f9;
+    /* background: #f9f9f9; */
     border-radius: 4px;
     box-shadow: 10px 10px 8px #888888;
+    /* align-items: center; */
+    box-shadow: 4px 4px 30px 4px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
     margin: 0 auto;
     max-width: 400px;
