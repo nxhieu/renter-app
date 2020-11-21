@@ -1,4 +1,5 @@
 declare const styles: {
-    readonly loginButton_wrapper: string;
+  readonly "loginButton_wrapper": string;
 };
 export = styles;
+
